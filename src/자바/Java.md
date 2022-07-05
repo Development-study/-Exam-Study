@@ -272,21 +272,34 @@ System.out.println(arr[0]); // 1
 ### 쓰레드
 
 #### 쓰레드 메소드
-| 반환 타입   | 메소드 이름(매개변수)                | 설명                   | 
-|---------|-----------------------------|----------------------|
-| void    | join()                      | 수행중인 쓰레드가 중지할 때까지 대기 |
-| void    | join(long mills)            | 매개변수에 지정된 시간까지 대기    |
-| void    | join(long mills, int nanos) | 더 자세한 시간만큼 대기        |
-| void    | interrupt()                 | 수행중인 쓰레드에 중지요청을 한다   |
-| boolean | isDaemon()                  | 쓰레드가 데몬쓰레드인지 확인      |
-| void    | setDaemon(boolean on)       | 데몬쓰레드로 만든다           |
-| int     | getPriority()               | 쓰레드의 우선순위를 확인한다      |
-| void    | setPriority(int n)          | 쓰레드의 우선순위 값을 변경한다    |
+| 반환 타입        | 메소드 이름(매개변수)                | 설명                   | 
+|--------------|-----------------------------|----------------------|
+| void         | run()                       | 구현해야하는 메소드           |
+| long         | getId()                     | 쓰레드의 고유 id를 리턴한다     |
+| String       | getName()                   | 쓰레드의 이름을 리턴한다        |
+| void         | setName(String name)        | 쓰레드의 이름을 지정한다        |
+| void         | join()                      | 수행중인 쓰레드가 중지할 때까지 대기 |
+| void         | join(long mills)            | 매개변수에 지정된 시간까지 대기    |
+| void         | join(long mills, int nanos) | 더 자세한 시간만큼 대기        |
+| void         | interrupt()                 | 수행중인 쓰레드에 중지요청을 한다   |
+| boolean      | isDaemon()                  | 쓰레드가 데몬쓰레드인지 확인      |
+| void         | setDaemon(boolean on)       | 데몬쓰레드로 만든다           |
+| int          | getPriority()               | 쓰레드의 우선순위를 확인한다      |
+| void         | setPriority(int n)          | 쓰레드의 우선순위 값을 변경한다    |
+| Thread.State | getState()                  | 쓰레드의 상태를 확인한다        |
 
 ###### 데몬 쓰레드
 -- 부가적인 작업을 수행하는 쓰레드를 선언할 때 주로 사용한다   
 -- 데몬쓰레드는 다른 실행중인 일반 쓰레드가 없으면 멈춘다
 
+###### 우선순위
+-- 우선순위의 기본값은 5이다
+
+| 상수            | 값 및 설명               |
+|---------------|----------------------|
+| MAX_PRIORITY  | 가장 높은 우선순위, 값은 10이다  |
+| NORM_PRIORITY | 일반 쓰레드의 우선순위, 값은 5이다 |
+| MIN_PRIORITY  | 가장 낮은 우선순위, 값은 1이다   |
 
 ### 다형성, 다중 상속, 추상화
 
